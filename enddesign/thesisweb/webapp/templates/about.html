@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" >
+		<title>用户个人信息</title>
+		<link rel="stylesheet" href="../static/css/normalize.css">
+		<link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400i,700,700i,800" rel="stylesheet">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
+	</head>
+	<body>
+	<header>
+		<a href = "{% url 'index' %}" id="logo">
+			<h1>Welcome To</h1>
+			<h1>Arxiv Platform</h1>
+		</a>
+		<nav>
+			<ul>
+				<li><a href = "{% url 'index' %}">主页</a></li>
+				<li><a href = "{% url 'about' %}" class = "selected">用户信息</a></li>
+				<li><a href = "{% url 'contact' %}">后台数据库</a></li>
+				<li><a href = "{% url 'login' %}">返回登陆页面</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<section>
+			<img src = "../static/img/yonghu.png" alt="www.oxox.work" class="profile-photo">
+			<h3>{{Name}}</h3>
+			<p>用&nbsp; 户 &nbsp;名：{{Username}}</p>
+			<p>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：{{Password}}</p>
+			<p>电话号码：{{Telephone}}</p>
+			<p>电子邮箱：{{Email}}</p>
+		</section>
+		<h6><div id="main1" style="width: 700px;height:500px"></div>
+				<script type="text/javascript">
+				var  myChart = echarts.init(document.getElementById('main1'));
+				var  option = {
+					tooltip: {
+					  formatter: '{a} <br/>{b} : {c}%'
+					},
+					series: [
+					  {
+						max:500,
+						name: '论文下载',
+						type: 'gauge',
+						progress: {
+						  show: true,
+						// center: ['25%', '30%']
+						},
+						detail: {
+						  valueAnimation: true,
+						  formatter: '{value} 篇'
+						},
+						data: [
+						  {
+							value: {{datelist}},
+							name: '论文已下载数',
+
+						  }
+						]
+					  }
+					]
+				  };
+					// 使用刚指定的配置项和数据显示图表。
+					myChart.setOption(option);
+				</script>
+		</h6>
+		<footer>
+			<a href="http://twitter.com"><img src="../static/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
+			<a href="http://facebook.com"><img src="../static/img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
+			<p>&copy; 2023 梦的起点</p>
+		</footer>
+	</div>
+	</body>
+</html>
+

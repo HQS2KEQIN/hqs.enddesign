@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" >
+		<title>后台数据库</title>
+		<link rel="stylesheet" href="../static/css/normalize.css">
+		<link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400i,700,700i,800" rel="stylesheet">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+	<body>
+	<header>
+		<a href = "{% url 'index' %}" id="logo">
+			<h1>Welcome To</h1>
+			<h1>Arxiv Platform</h1>
+		</a>
+		<nav>
+			<ul>
+				<li><a href = "{% url 'index' %}">主页</a></li>
+				<li><a href = "{% url 'about' %}">用户信息</a></li>
+				<li><a href = "{% url 'contact' %}" class = "selected">后台数据库</a></li>
+				<li><a href = "{% url 'login' %}">返回登陆页面</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<section id = "pramary">
+			<h3>智 能 数 据 库</h3>
+               <p>
+			<form method="post">
+			<style>
+					input
+						{
+
+						white-space:pre;
+						border:1px solid #ccc;
+						padding:10px 0px;
+						border-radius:3px;
+						-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+						box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+						-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+						-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+						transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+						}
+					input:focus
+						{
+
+						border-color:#66afe9;
+						outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+						box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+						}
+			</style>
+					 <input type="text" name="title" value="{{ user_data.title }} "><br>
+					 <input type="text" name="website" value="{{ user_data.website }}"><br>
+					 <input type="text" name="subjects" value="{{ user_data.subjects}}"><br>
+					 <input type="text" name="abkey" value="{{ user_data.abkey }}"><br>
+					 <input type="submit" value="提交" >
+		</form>
+               </p>
+
+		</section>
+		<footer>
+			<a href="http://twitter.com"><img src="../static/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
+			<a href="http://facebook.com"><img src="../static/img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
+			<p>&copy; 2023 梦的开始</p>
+		</footer>
+	</div>
+	</body>
+</html>
+

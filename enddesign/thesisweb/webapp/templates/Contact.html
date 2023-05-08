@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" >
+		<title>后台数据库</title>
+		<link rel="stylesheet" href="../static/css/normalize.css">
+		<link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400,400i,700,700i,800" rel="stylesheet">
+		<link rel="stylesheet" href="../static/css/main.css">
+		<link rel="stylesheet" href="../static/css/responsive.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+	<header>
+		<a href = "{% url 'index' %}" id="logo">
+			<h1>Welcome To</h1>
+			<h1>Arxiv Platform</h1>
+		</a>
+		<nav>
+			<ul>
+				<li><a href = "{% url 'index' %}">主页</a></li>
+				<li><a href = "{% url 'about' %}">用户信息</a></li>
+				<li><a href = "{% url 'contact' %}" class = "selected">后台数据库</a></li>
+				<li><a href = "{% url 'login' %}">返回登陆页面</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="wrapper">
+		<section id = "pramary">
+			<h3>智 能 数 据 库</h3>
+				<p>
+					<style>
+						.table11_6 table {
+							width:100%;
+							margin:15px 0;
+							border:0;
+						}
+						.table11_6 th {
+							background-color:#96C7ED;
+							color:#000000
+						}
+						.table11_6,.table11_6 th,.table11_6 td {
+							font-size:0.95em;
+							text-align:center;
+							padding:4px;
+							border-collapse:collapse;
+						}
+						.table11_6 th,.table11_6 td {
+							border: 1px solid #73b4e7;
+							border-width:1px 0 1px 0;
+							border:2px inset #ffffff;
+						}
+						.table11_6 tr {
+							border: 1px solid #ffffff;
+						}
+						.table11_6 tr:nth-child(odd){
+							background-color:#dcecf9;
+						}
+						.table11_6 tr:nth-child(even){
+							background-color:#ffffff;
+						}
+					</style>
+					<table class=table11_6>
+						<tr>
+							<th>queryname</th><th>title</th><th>website</th><th>subject</th><th>abkey</th><th>操作</th><th>操作</th>
+						</tr>
+				`			{% for obj in datelist %}
+						<tr>
+<!--							<td>{{ obj.id }}</td>-->
+							<td>{{ obj.queryname }}</td>
+							<td>{{ obj.title }}</td>
+							<td>{{ obj.website }}</td>
+							<td>{{ obj.subjects }}</td>
+							<td>{{ obj.abkey }}</td>
+							<td><a href="/Del/?uid={{obj.id}}">删除</a></td>
+          					<td><a href="/edit/?uid={{obj.id}}">编辑</a></td>
+						</tr>
+							 {% endfor %}
+					</table>
+				</p>
+		</section>
+		<footer>
+			<a href="http://twitter.com"><img src="../static/img/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
+			<a href="http://facebook.com"><img src="../static/img/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
+			<p>&copy; 2023 梦的开始</p>
+		</footer>
+	</div>
+	</body>
+</html>
+
+
